@@ -1,0 +1,604 @@
+body,html{
+    width: 100%;
+    font-family: -apple-system-font,Helvetica Neue,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+}
+body *{
+    overflow: hidden;
+}
+.bottom-index,.bottom-index *{
+    overflow: visible;
+}
+body>.table{
+    position: fixed;
+    top: 127px;
+    left: 0;
+    right: 0;
+    height: calc(100% - 127px - 61px);
+    overflow-y: auto;
+}
+.infoPanel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100% - 61px);
+    overflow-y: auto;
+    display: none;
+}
+.homePanel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100% - 61px);
+}
+.tr,.infoPanel .info{
+    position: relative;
+    font-size: 16px;
+    line-height: 44px;
+    padding: 5px 15px 5px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.td,.th{
+    max-height: 88px;
+    float: left;
+    display: inline-block;
+    width: 20%;
+}
+.th{
+    font-weight: bold;
+}
+div.td,div.th{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.infoPanel .info>label{
+    width: 95px;
+    float: left;
+}
+.infoPanel .info>label:not(.title),.infoPanel .info>button{
+    width: calc(100% - 95px - 30px);
+    float: left;
+}
+.infoPanel .info .iconfont{
+    cursor: pointer;
+    float: left;
+}
+.infoPanel .info textarea{
+    width: calc(100% - 95px - 50px);
+    background: transparent;
+    font-family: Arial;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 3px 8px;
+    resize: none;
+    float: left;
+}
+.infoPanel .info>button{
+    color: #FFFFFF;
+    height: 44px;
+    border: none;
+}
+.infoPanel .info>button.finishOrderAction{
+    background-color: #ff5b5b;
+}
+.infoPanel .info>button.quitDisplayOrderAction{
+    background-color: #009fe8;
+}
+.infoPanel .errorMessage{
+    width: calc(100% - 185px - 95px - 30px);
+    padding:3px;
+    margin-top: 10px;
+    margin-left: 110px;
+    color: #ff5b5b;
+    font-size: 14px;
+    line-height: 18px;
+    height: 22px;
+    overflow: hidden;
+    display: none;
+}
+label.red{
+    color: #ff5b5b;
+}
+.displayOrderAction{
+    width: 100%;
+    margin: 5px 0px;
+    height: 34px;
+    border: none;
+    border-radius: 5px;
+}
+.takeOrderAction:enabled{
+    background-color: #5652DB;
+    color: #ffffff;
+}
+.displayOrderAction:enabled{
+    background-color: #ff9900;
+    color: #ffffff;
+}
+#page_devide{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 0px;
+    border-bottom: solid 1px #e0e0e0;
+    background: rgba(240,240,240,1);
+}
+#pages{
+    background-color: #ffffff;
+}
+.pageButton{
+    display: inline-block;
+    line-height: 40px;
+    min-width: 10%;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+}
+.prev,.next{
+    min-width: 20%;
+}
+.pageActive{
+    background: #009fe8;
+    color: #ffffff;
+}
+#pages>input:not(.pageActive){
+    background: #ffffff;
+    color: #5e5e5e;
+}
+#pages>input:not(.pageActive):hover,#pages>input:not(.pageActive):active{
+    background: #cccccc;
+    color: #252525;
+}
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.prev{
+    float: left;
+}
+.next,.last{
+    float: right;
+}
+.homePanel>div{
+    position: relative;
+}
+.homePanel>.header{
+    padding: 10px 15px;
+    border-bottom: solid 1px #e0e0e0;
+    background: #009fe8;
+}
+.homePanel>.header{
+    font-size: 22px;
+    line-height: 50px;
+    height: 50px;
+}
+.homePanel>.header .name{
+    color: #FFFFFF;
+}
+.homePanel>.header .status{
+    float: right;
+}
+.homePanel>.header .message{
+    padding: 0px 18px !important;
+    margin-right: 20px;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    height: 100%;
+    background-color: #F39C12;
+}
+.info.table-cell{
+    border-bottom: 1px solid #e0e0e0;
+}
+.info.table-cell>span{
+    width: 33% !important;
+    display: inline-block;
+}
+span.free{
+    color:#545454;
+}
+span.normal{
+    color: #0fff5d;
+}
+span.busy{
+    color: #ff5b5b;
+}
+.homePanel>.content{
+    padding: 10px 15px;
+    background-color: #e7e7e7;
+    height: calc(100% - 71px - 20px);
+    overflow-y: scroll;
+}
+.homePanel>.content>button{
+    color: #FFFFFF;
+    height: 44px;
+    border: none;
+    cursor: pointer;
+}
+button.checkInAction{
+    width: 80%;
+    margin: 10% 10%;
+    background-color: #009fe8;
+}
+button.checkOutAction{
+    width: 50%;
+    margin: 10% 25%;
+    background-color: #ff5b5b;
+}
+.bottom-index{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top:solid 1px #e0e0e0;
+    box-shadow: -1px 0px 3px 0px rgba(147,147,147,.5);
+}
+.bottom-index>div{
+    width: 25%;
+    position: relative;
+}
+.bottom-index div{
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+}
+.bottom-index div:not(.hidden){
+    display: inline-block;
+}
+.indexSelect div{
+    width: 100%;
+}
+.bottom-index div{
+    background: #ffffff;
+    color: #5e5e5e;
+}
+.bottom-index div:not(.indexSelect):hover, .bottom-index div:not(.indexSelect):active {
+    background: #cccccc;
+    color: #252525;
+}
+#check{
+    width: 80%;
+    margin: 10px auto;
+}
+#keyWord{
+    width: 80%;
+    background-color: #ffffff;
+    border: solid 1px #e0e0e0;
+    line-height: 40px;
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+#checkAction{
+    width: 20%;
+    background: #009fe8;
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    float: left;
+}
+.info:last-child{
+    margin-bottom: 120px;
+}
+tr.order:last-child{
+    margin-bottom: 120px;
+}
+.indexSelectItem{
+    position: relative;
+}
+.indexSelect .options{
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: -1px 0px 3px 0px rgba(147,147,147,.5);
+    box-shadow: -1px 0px 3px 0px rgba(147,147,147,.5);
+}
+.options>div{
+    border-bottom: 1px solid #e0e0e0;
+}
+.options>div:last-child{
+    border: none;
+}
+.options a:hover {
+    color: #262626;
+    background-color: #f5f5f5;
+}
+.hidden{
+    display: none;
+}
+.td.standby{
+    color: #ff5b5b;
+}
+.td.handling{
+    color: #0fff5d;
+}
+button{
+    cursor: pointer;
+}
+.homePanel .panel-default{
+    width: 100%;
+    margin: 10px 0px;
+}
+.form .info select{
+    margin-bottom: 5px;
+}
+/*panel-default默认*/
+.panel-default .table{
+    width: 100%;
+    text-align: left;
+    border-collapse: separate !important;
+}
+.panel-default table{
+    border-spacing: 0;
+    background-color: transparent;
+    table-layout: fixed;
+}
+.panel-default .table td,.panel-default .table th,.panel-default .table tbody,.panel-default .table{
+    border: 1px solid #ddd;
+}
+.panel-default .table td,.panel-default .table th{
+    padding: 8px 0px;
+    line-height: 1.42857143;
+}
+.panel-default tr.odd{
+    background-color: #f9f9f9;
+}
+.panel-default .table th,.panel-default .table td{
+    border-left-width: 0;
+    border-bottom-width: 0;
+}
+.panel-default .table th:last-child,.panel-default .table td:last-child{
+    border-right-width: 0;
+}
+.panel-default .table th{
+    border-top-width: 0;
+}
+.panel-default tbody tr:hover {
+    background-color: #f5f5f5;
+}
+.panel-default th,.panel-default td{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.panel-default table .first-col{
+    padding: 0px;
+    width: 28px;
+    text-align: center;
+}
+.panel-default .table th:not(.first-col),.panel-default .table td:not(.first-col){
+    width: calc((100% - 32px) / 7);
+}
+.panel-default {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-default,.panel-default *{
+    overflow: visible;
+}
+.panel-default .header {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    padding: 10px 15px;
+    border-bottom: 1px solid #dddddd;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-default .body {
+    padding: 15px;
+}
+.panel-default .header .select {
+    float: right;
+    position: relative;
+}
+.panel-default .btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1px 5px;
+    cursor: pointer;
+}
+.panel-default .hidden {
+    display: none;
+}
+.panel-default .select>.options {
+    margin-top: 10px;
+}
+.panel-default .options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.panel-default .options ul {
+    padding: 0px;
+}
+.panel-default ul {
+    list-style: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+.panel-default .options li {
+    padding: 0px;
+}
+.panel-default .options a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    pointer-events: auto;
+    cursor: pointer;
+}
+/*帮助菜单*/
+.helpPanel {
+    position: fixed;
+    top: 0;
+    bottom: 61px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+}
+.helpPanel .header{
+    width: calc(100% - 30px);
+    padding: 5px 15px;
+    line-height: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.helpPanel .header a {
+    width: 26px;
+    height: 26px;
+    margin: 9px 0px;
+    float: right;
+}
+.helpPanel .header img {
+    width: 26px;
+    height: 26px;
+    float: left;
+}
+.helpPanel>.body{
+    height: calc(100% - 55px);
+    overflow-y: scroll;
+}
+.helpPanel .body button{
+    width: 33%;
+    height: 44px;
+    padding: 5px auto;
+    display: inline-block;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    margin: 20px auto;
+}
+.helpPanel .body .confirmAction{
+    margin-left: 10%;
+    margin-right: 7%;
+    background-color: #009fe8;
+}
+.helpPanel .body .cancelAction{
+    margin-left: 7%;
+    margin-right: 10%;
+    background-color: rgb(221, 221, 221);
+}
+.helpPanel .info{
+    width: calc(100% - 10px);
+    padding: 5px 10px;
+}
+.helpPanel .body .info>input:enabled, .helpPanel .body .info>textarea:enabled {
+    background: transparent;
+}
+.helpPanel .body .info>textarea {
+    font-family: Arial;
+}
+.helpPanel .body .info>input, .helpPanel .body .info>textarea, .helpPanel .body .info>select {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 3px 8px;
+    resize: none;
+}
+.helpPanel .body .info>span:not(.binding), .helpPanel .body .info>input, .helpPanel .body .info>textarea, .helpPanel .body .info>select {
+    width: calc(100% - 6px);
+    position: relative;
+    z-index: 4000;
+}
+.helpPanel .body .info>span.binding, .helpPanel .body .info>span:not(.binding), .helpPanel .body .info>input, .helpPanel .body .info .tip, .helpPanel .body .info>select {
+    line-height: 30px;
+}
+.helpPanel .body .info>select {
+    height: 37.6px;
+}
+.helpPanel .body .info>.errorMessage {
+    width: 100%;
+    padding: 5px;
+    color: #ff5b5b;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: hidden;
+    display: none;
+}
+.helpPanel .body .info>.errorMessage>img {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    margin-right: 2px;
+}
+/**/
+.askForLeaveAction,.freeTimeManagementAction,.myLeaveList{
+    width: 28%;
+    border-radius: 10px;
+    margin: 10% auto;
+    color: #FFFFFF;
+}
+.askForLeaveAction{
+    margin-left: 1.5%;
+    margin-right: 5%;
+    background-color: #a2a8ae;
+}
+.freeTimeManagementAction{
+    margin-left: 5%;
+    margin-right: 1.5%;
+    background-color: #ff5b5b;
+}
+.myLeaveList{
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    background-color: #F39C12;
+}
+.helpPanel td,.helpPanel th{
+    position: relative;
+}
+.helpPanel .panel-default{
+    width: 80%;
+    margin: 20px 10%;
+}
+.helpPanel td.selected{
+    background: #0fff5d;
+}
