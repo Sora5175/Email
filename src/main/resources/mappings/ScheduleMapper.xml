@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.merrill.dao.mapper.ScheduleMapper">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <resultMap id="Schedule" type="Schedule">
+        <id column="id" property="id"/>
+        <result column="date" property="date"/>
+        <result column="status" property="status"/>
+        <result column="description" property="description"/>
+        <association property="operator" javaType="com.merrill.dao.entity.Operator">
+            <id column="o_id" property="id"/>
+            <result column="o_open_id" property="openID"/>
+            <result column="o_name" property="name"/>
+            <result column="o_phone" property="phone"/>
+        </association>
+        <association property="workTime" javaType="com.merrill.dao.entity.WorkTime">
+            <id column="w_number" property="number"/>
+            <result column="begin_time" property="beginTime"/>
+            <result column="end_time" property="endTime"/>
+        </association>
+    </resultMap>
+
+    <sql id="selectBase">
+        SELECT s.id,
+               s.date,
+               s.status,
+               s.description,
+               s.number  AS s_number,
+               o.id      AS o_id,
+               o.open_id AS o_open_id,
+               o.name    AS o_name,
+               o.phone   AS o_phone,
+               w.number  AS w_number,
+               w.end_time,
+               w.end_time
+        FROM schedule s
+                 LEFT JOIN operator o on s.operator_id = o.id
+                 LEFT JOIN work_time w on s.number = w.number
+    </sql>
+    <insert id="addSchedule">
+        INSERT INTO schedule(`date`, `number`, operator_id, status)
+        VALUES (#{date}, #{number}, #{operatorID}, #{status})
+    </insert>
+    <update id="updateScheduleOperatorStatus">
+        UPDATE schedule
+        SET status = #{status}
+        WHERE `date` = #{date}
+          AND `number` = #{number}
+          AND operator_id = #{operatorID}
+    </update>
+    <update id="updateScheduleDescription">
+        UPDATE schedule
+        SET description = #{description},
+            status      = #{status}
+        WHERE id = #{id}
+    </update>
+    <update id="updateScheduleStatus">
+        UPDATE schedule
+        SET status = #{status}
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteScheduleListByDateAndNumber">
+        DELETE
+        FROM schedule
+        WHERE `date` = #{date}
+          AND `number` = #{number}
+    </delete>
+    <delete id="deleteScheduleByID">
+        DELETE
+        FROM schedule
+        WHERE id = #{id}
+    </delete>
+    <select id="getNumbersByDateAndOperatorID" resultType="java.lang.Integer">
+        SELECT number
+        FROM schedule
+        WHERE `date` = #{date}
+          AND operator_id = #{operatorID}
+    </select>
+    <select id="getScheduleListByDateAndNumber" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE `date` = #{date} AND s.number = #{number} AND s.status &lt; 8
+    </select>
+    <select id="getSchedule" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE `date` = #{date} AND s.number = #{number}
+        AND operator_id = #{operatorID}
+    </select>
+    <select id="getScheduleByStatus" resultType="java.lang.Long">
+        SELECT operator_id
+        FROM schedule
+        WHERE status = #{status}
+    </select>
+    <select id="getNumberByDateAndStatus" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM schedule
+        WHERE `date` = #{date}
+          AND status = #{status}
+    </select>
+    <select id="getScheduleListByStatus" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE s.status = #{status}
+    </select>
+    <select id="getScheduleByID" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE s.id = #{id}
+    </select>
+    <select id="getReviewedLeaveList" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE s.status = 9 OR s.status = 10
+    </select>
+    <select id="getUnReviewedLeaveList" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE s.status = 8
+    </select>
+    <select id="getLeaveListByOperatorID" resultMap="Schedule">
+        <include refid="selectBase"/>
+        WHERE operator_id = #{operatorID} AND s.date &gt;= #{date} AND s.status > 7
+    </select>
+
+</mapper>

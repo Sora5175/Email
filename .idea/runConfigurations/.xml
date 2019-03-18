@@ -1,0 +1,74 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="信息办" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" APPLICATION_SERVER_NAME="Tomcat 8.5.332" ALTERNATIVE_JRE_ENABLED="false">
+    <option name="HOST" value="202.119.161.18" />
+    <option name="LOCAL" value="false" />
+    <option name="UPDATING_POLICY" value="hot-swap-classes" />
+    <deployment>
+      <artifact name="Repairment:war exploded">
+        <settings>
+          <option name="CONTEXT_PATH" value="/repair" />
+        </settings>
+      </artifact>
+    </deployment>
+    <server-settings>
+      <data>
+        <option name="jndiPort" value="50469" />
+        <option name="targets">
+          <list>
+            <WatchedTargetModelImpl>
+              <option name="name" value="CONTEXT_XML" />
+              <option name="transportStagingTarget">
+                <TransportTarget>
+                  <option name="id" value="397c1139-f9d8-4281-94eb-bb20492b65c1" />
+                  <id>397c1139-f9d8-4281-94eb-bb20492b65c1</id>
+                </TransportTarget>
+              </option>
+              <option name="watchedLocalPath" value="" />
+              <watched-path />
+              <name>CONTEXT_XML</name>
+              <transport-target>
+                <TransportTarget>
+                  <option name="id" value="397c1139-f9d8-4281-94eb-bb20492b65c1" />
+                  <id>397c1139-f9d8-4281-94eb-bb20492b65c1</id>
+                </TransportTarget>
+              </transport-target>
+            </WatchedTargetModelImpl>
+            <StagingTargetModelImpl>
+              <option name="name" value="STAGING" />
+              <option name="stagingRemotePath" value="./" />
+              <option name="transportStagingTarget">
+                <TransportTarget>
+                  <option name="id" value="27e195ae-5b23-452c-b217-516450e1fbb9" />
+                  <id>27e195ae-5b23-452c-b217-516450e1fbb9</id>
+                </TransportTarget>
+              </option>
+              <staging-path>./</staging-path>
+              <name>STAGING</name>
+              <transport-target>
+                <TransportTarget>
+                  <option name="id" value="27e195ae-5b23-452c-b217-516450e1fbb9" />
+                  <id>27e195ae-5b23-452c-b217-516450e1fbb9</id>
+                </TransportTarget>
+              </transport-target>
+            </StagingTargetModelImpl>
+          </list>
+        </option>
+        <option name="transportHostId" value="92569be2-ed23-4da0-af0f-0a1813692d1c" />
+        <jndi-port>50469</jndi-port>
+        <host-id>92569be2-ed23-4da0-af0f-0a1813692d1c</host-id>
+      </data>
+    </server-settings>
+    <predefined_log_file id="Tomcat" enabled="true" />
+    <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+    <RunnerSettings RunnerId="Debug">
+      <option name="DEBUG_PORT" value="50469" />
+      <option name="LOCAL" value="false" />
+    </RunnerSettings>
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="Repairment:war exploded" />
+      </option>
+    </method>
+  </configuration>
+</component>
