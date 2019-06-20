@@ -1,0 +1,211 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(249, 249, 249);
+}
+body div{
+    overflow: hidden;
+}
+.header{
+    line-height: 30px;
+    padding: 10px;
+}
+.info,.action{
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+.action{
+    text-align: right;
+}
+.sendEmail,.logout{
+    color: white;
+    border: none;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+}
+.sendEmail:active,.logout:active    {
+    width: 68px;
+    height: 28px;
+    border-width: 1px;
+    border-style: inset;
+    border-image: initial;
+}
+.sendEmail{
+    background-color: #009fe8;
+}
+.logout{
+    background-color: #ff5b5b;;
+}
+.body{
+    border-top: #E0E0E0 1px solid;
+}
+.footer{
+    min-height: 30px;
+    line-height: 30px;
+    padding: 10px;
+    border-top: #E0E0E0 1px solid;
+}
+.content{
+    background-color: white;
+}
+.rightContent{
+    border-left: #E0E0E0 1px solid;
+    width: calc(100% - 121px);
+    height: calc(100% - 51.6px);
+    overflow-y: scroll;
+}
+.email,.emailDisabled{
+    padding: 25px;
+    border-bottom: #E0E0E0 1px solid;
+    cursor: pointer;
+}
+.email:hover,.emailDisabled:hover{
+    background: #cccccc;
+    color: #252525;
+}
+.email>div{
+    width: 100%;
+}
+.email_subject,.email_time{
+    width: 50%;
+    display: inline-block;
+}
+.email_from{
+    font-size: 30px;
+}
+.email_subject{
+    line-height: 30px;
+    font-size: 18px;
+}
+.email_time{
+    text-align: right;
+    line-height: 30px;
+}
+.email_time,.email_subject{
+    color: #8c8c8c;
+}
+.email_title,.email_subject{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.lid{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background: rgba(240,240,240,0.8);
+    display: none;
+}
+.lid>div{
+    box-shadow: 0 2px 3px 0 rgba(147,147,147,.5);
+    position: relative;
+}
+.lid .sendingEmail{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top:50px;
+    margin: auto;
+    background-color: #FFFFFF;
+    width: 80%;
+    border-radius: 5px;
+}
+.lid .sendingEmail_header{
+    padding: 5px 20px;
+}
+.lid .sendingEmail_footer{
+    padding: 10px 20px;
+    text-align: center;
+}
+.lid .sendingEmail_header{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 40px;
+    color: #5e6d82;
+    border-bottom: solid 1px #e0e0e0;
+    padding: 5px 20px;
+}
+.sendingEmail_body{
+    padding: 0px 10px;
+}
+.lid .sendingEmail_body .input{
+    width: 100%;
+    padding: 10px 0px;
+}
+.lid .sendingEmail_body .input>input,.tips{
+    line-height: 30px;
+}
+.lid .sendingEmail_body .input>textarea,.lid .sendingEmail_body .input>input{
+    font-family: Arial;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 3px 8px;
+    resize: none;
+    width: 100%;
+    z-index: 4000;
+}
+.lid .sendingEmail_footer>div{
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+.lid .sendingEmail_footer button{
+    width: 200px;
+    height: 45px;
+    display: inline-block;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+.confirmSend{
+    background-color: #feb23e;
+}
+.cancelSend{
+    background-color: rgb(221, 221, 221);
+}
+.detailEmail_info{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    padding: 3px 5px;
+}
+.detailEmail_subject{
+    font-size: 20px;
+}
+.detailEmail_header{
+    border-bottom: #E0E0E0 1px solid;
+}
+.detailEmail_info.gray{
+    color:#c3c5c6;
+}
+.detailEmail_content{
+    padding: 10px;
+}
+.detailEmail_footer{
+    padding: 10px 5px;
+    line-height: 25px;
+}
+.leftContent,.rightContent {
+    display: inline-block;
+    float:left;
+}
+.changeItem{
+    width: 120px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+    border-bottom: #E0E0E0 1px solid;;
+}
+.changeItem:hover{
+    background: #cccccc;
+    color: #252525;
+}

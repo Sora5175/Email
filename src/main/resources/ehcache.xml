@@ -78,7 +78,7 @@
       name为mapper的全限定名
     -->
     <!--<cache-->
-    <!--name="com.merrill.mybatis.hello.mapper.TeacherMapper"-->
+    <!--name="com.sora.mybatis.hello.mapper.TeacherMapper"-->
     <!--maxElementsInMemory="10000"-->
     <!--eternal="true"-->
     <!--timeToIdleSeconds="300"-->

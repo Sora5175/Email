@@ -4,7 +4,7 @@
     <option name="LOCAL" value="false" />
     <option name="UPDATING_POLICY" value="hot-swap-classes" />
     <deployment>
-      <artifact name="Repairment:war exploded">
+      <artifact name="tcpip:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/repair" />
         </settings>
@@ -67,7 +67,7 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="Repairment:war exploded" />
+        <artifact name="tcpip:war exploded" />
       </option>
     </method>
   </configuration>
